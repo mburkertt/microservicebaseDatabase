@@ -1,0 +1,17 @@
+{
+  "testCaseId": "testcase1",
+  "peripheralSystems": {
+    "testperipheral1": {
+      "id": "testperipheral1",
+      "executedScripts": {
+        "testscript1": {
+          "id": "testscript1",
+          "executionOrderInSpecifiedTestCase": {
+            "testcase1": 1
+          },
+          "setStartSettings": "scriptstart"
+        }
+      }
+    }
+  }
+}
