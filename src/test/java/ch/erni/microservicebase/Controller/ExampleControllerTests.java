@@ -1,6 +1,8 @@
 package ch.erni.microservicebase.Controller;
 
 import ch.erni.microservicebase.Model.Example;
+import ch.erni.microservicebase.Persistence.DAO.Person;
+import ch.erni.microservicebase.Service.DataExampleService;
 import ch.erni.microservicebase.Service.ExampleService;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,24 +22,27 @@ public class ExampleControllerTests {
     @Mock
     private ExampleService exampleService;
 
+    @Mock
+    DataExampleService dataExampleService;
+
     private ExampleController exampleController;
 
     @Before
     public void setUp() {
-        exampleController = new ExampleController(exampleService);
+        exampleController = new ExampleController(dataExampleService ,exampleService);
     }
 
 
     @Test
     public void exampleController_returns_correct_message() {
-        String testString = "I am a completed example!";
+        String testString = "Hallo ich bin Frank";
         Example testExample = new Example();
         testExample.setCompletedExample(testString);
         Mockito.when(exampleService.getCompletedExample(null)).thenReturn(testExample);
 
-        String testResult = exampleController.exampleController();
+        Example testResult = exampleController.exampleController();
 
-        assertThat(testResult).isEqualTo("I am a completed example!");
+        assertThat(testResult.getCompletedExample()).isEqualTo("Hallo ich bin Frank");
     }
 
     @Test
@@ -47,8 +52,9 @@ public class ExampleControllerTests {
         testExample.setCompletedExample(testString);
         Mockito.when(exampleService.getCompletedExample(null)).thenReturn(testExample);
 
-        String testResult = exampleController.exampleController();
+        Example testResult = exampleController.exampleController();
 
-        assertThat(testResult).isNotEqualTo("I am a completed example!");
+        assertThat(testResult).isNotNull();
+        assertThat(testResult.getCompletedExample()).isNotEqualTo("Hallo ich bin Frank");
     }
 }

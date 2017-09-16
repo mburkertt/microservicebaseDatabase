@@ -1,5 +1,6 @@
 package ch.erni.microservicebase.Configuration;
 
+import ch.erni.microservicebase.Persistence.DAO.Person;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
 
@@ -11,8 +12,8 @@ import org.springframework.context.annotation.Bean;
 public class ExampleConfiguration {
 
 
-    @Bean("uncompleteExample")
-    public String exampleString() {
-        return "I am an uncompleted example!";
+    @Bean("person")
+    public Person exampleString() {
+        return new Person();
     }
 }
