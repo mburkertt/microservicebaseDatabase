@@ -1,6 +1,4 @@
-package ch.erni.microservicebase;
-
-import ch.erni.microservicebase.Model.Example;
+package ch.erni.microservicebase.Persistence.Repository;
 import ch.erni.microservicebase.Persistence.DAO.Person;
 
 import java.util.Locale;
@@ -8,7 +6,7 @@ import java.util.Locale;
 /**
  * Created by Matthias on 16/09/2017.
  */
-public class DataBaseObjectMother {
+public final class DataBaseObjectMotherIT {
 
     public static Person getDataSetFrank() {
         Person person = new Person();

@@ -1,6 +1,5 @@
 package ch.erni.microservicebase.Persistence.Repository;
 
-import ch.erni.microservicebase.DataBaseObjectMother;
 import ch.erni.microservicebase.Persistence.DAO.Person;
 import org.assertj.core.groups.Tuple;
 import org.junit.Test;
@@ -12,8 +11,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 import java.util.Locale;
 
-import static ch.erni.microservicebase.DataBaseObjectMother.getDataSetFrank;
-import static ch.erni.microservicebase.DataBaseObjectMother.getDataSetWalter;
+import static ch.erni.microservicebase.Persistence.Repository.DataBaseObjectMotherIT.getDataSetFrank;
+import static ch.erni.microservicebase.Persistence.Repository.DataBaseObjectMotherIT.getDataSetWalter;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -21,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class PersonRepositoryTest {
+public class PersonRepositoryIT {
 
     @Autowired
     private PersonRepository repository;

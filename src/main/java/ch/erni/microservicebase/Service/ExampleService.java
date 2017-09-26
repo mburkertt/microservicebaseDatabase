@@ -3,7 +3,6 @@ package ch.erni.microservicebase.Service;
 import ch.erni.microservicebase.Model.Example;
 import ch.erni.microservicebase.Persistence.DAO.Person;
 import org.springframework.stereotype.Service;
-import sun.awt.util.IdentityArrayList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +41,7 @@ public class ExampleService {
         return example;
     }
 
-    public List<Person> getListOfPersons(){
+    public List<Person> getListOfPersons() {
         List<Person> persons = new ArrayList<>();
         persons.add(getCompletedExample(new Person()).getPerson());
         persons.add(getCompletedExample2(new Person()).getPerson());

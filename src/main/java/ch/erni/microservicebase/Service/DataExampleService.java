@@ -4,13 +4,16 @@ import ch.erni.microservicebase.Persistence.DAO.Person;
 import ch.erni.microservicebase.Persistence.Repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by Matthias on 14/09/2017.
  */
 @Service
+@Transactional
 public class DataExampleService {
 
     private PersonRepository repository;
@@ -28,11 +31,11 @@ public class DataExampleService {
         return repository.findOne(id);
     }
 
-    public void deletePerson(Person person) {
-        repository.delete(person.getId());
+    public void deletePerson(long id) {
+        repository.delete(id);
     }
 
-    public Iterable<Person> findAllPersons() {
+    public List<Person> findAllPersons() {
         return repository.findAll();
     }
 
@@ -40,8 +43,8 @@ public class DataExampleService {
         repository.save(persons);
     }
 
-    public void deleteAllPersons(Collection<Person> persons) {
-        repository.delete(persons);
+    public void deleteAllPersons() {
+        repository.deleteAll();
     }
 
 }
