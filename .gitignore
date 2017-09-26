@@ -44,3 +44,6 @@
 /.idea/vcs.xml
 /.idea/workspace.xml
 /microservicebase.iml
+/.idea/dbnavigator.xml
+/.idea/libraries/Maven__com_github_springtestdbunit_spring_test_dbunit_1_3_1_SNAPSHOT.xml
+/.idea/uiDesigner.xml
