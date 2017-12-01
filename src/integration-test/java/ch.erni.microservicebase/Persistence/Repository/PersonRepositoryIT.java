@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -26,8 +27,9 @@ public class PersonRepositoryIT {
     private PersonRepository repository;
 
     @Test
+    @DirtiesContext
     public void select_all_entry_from_db() {
-
+        repository.deleteAll();
         repository.save(getDataSetFrank());
         repository.save(getDataSetWalter());
 
@@ -40,8 +42,9 @@ public class PersonRepositoryIT {
     }
 
     @Test
+    @DirtiesContext
     public void select_one_entry_from_db() {
-
+        repository.deleteAll();
         repository.save(getDataSetFrank());
 
         Person result = repository.findOne(1L);
@@ -50,11 +53,13 @@ public class PersonRepositoryIT {
         assertThat(result)
                 .extracting(Person::getFirstName, Person::getLastName, Person::getCountry, Person::getTown)
                 .containsExactly("Frank", "van Beren", new Locale("DE", "DEU"), "Frankfurt");
+        repository.deleteAll();
     }
 
     @Test
+    @DirtiesContext
     public void delete_one_entry_and_check_if_it_is_deleted() {
-
+        repository.deleteAll();
         repository.save(getDataSetFrank());
         repository.save(getDataSetWalter());
 
@@ -76,8 +81,9 @@ public class PersonRepositoryIT {
     }
 
     @Test
+    @DirtiesContext
     public void delete_all_entry_and_check_if_it_is_deleted() {
-
+        repository.deleteAll();
         repository.save(getDataSetFrank());
         repository.save(getDataSetWalter());
 

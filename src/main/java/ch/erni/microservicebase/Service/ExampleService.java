@@ -19,6 +19,7 @@ public class ExampleService {
 
     public Example getCompletedExample(Person person) {
         person.setCountry(new Locale("DE", "DEU"));
+        person.setId(1L);
         person.setFirstName("Frank");
         person.setLastName("van Beren");
         person.setTown("Frankfurt");
@@ -35,6 +36,7 @@ public class ExampleService {
         person.setLastName("Weis");
         person.setTown("Berlin");
         person.setZip("6809098");
+        person.setId(2L);
         Example example = new Example();
         example.setPerson(person);
         example.setCompletedExample("Hallo ich bin Walter");
