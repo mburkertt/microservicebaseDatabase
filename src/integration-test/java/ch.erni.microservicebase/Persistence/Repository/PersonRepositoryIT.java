@@ -28,21 +28,6 @@ public class PersonRepositoryIT {
 
     @Test
     @DirtiesContext
-    public void select_all_entry_from_db() {
-        repository.deleteAll();
-        repository.save(getDataSetFrank());
-        repository.save(getDataSetWalter());
-
-        List<Person> result = repository.findAll();
-
-        assertThat(result).hasSize(2);
-        assertThat(result)
-                .extracting(Person::getFirstName, Person::getLastName, Person::getCountry, Person::getTown)
-                .containsExactly(Tuple.tuple("Frank", "van Beren", new Locale("DE", "DEU"), "Frankfurt"), Tuple.tuple("Walter", "Weis", new Locale("DE", "DEU"), "Berlin"));
-    }
-
-    @Test
-    @DirtiesContext
     public void select_one_entry_from_db() {
         repository.deleteAll();
         repository.save(getDataSetFrank());
@@ -54,6 +39,21 @@ public class PersonRepositoryIT {
                 .extracting(Person::getFirstName, Person::getLastName, Person::getCountry, Person::getTown)
                 .containsExactly("Frank", "van Beren", new Locale("DE", "DEU"), "Frankfurt");
         repository.deleteAll();
+    }
+
+    @Test
+    @DirtiesContext
+    public void select_all_entry_from_db() {
+        repository.deleteAll();
+        repository.save(getDataSetFrank());
+        repository.save(getDataSetWalter());
+
+        List<Person> result = repository.findAll();
+
+        assertThat(result).hasSize(2);
+        assertThat(result)
+                .extracting(Person::getFirstName, Person::getLastName, Person::getCountry, Person::getTown)
+                .containsExactly(Tuple.tuple("Frank", "van Beren", new Locale("DE", "DEU"), "Frankfurt"), Tuple.tuple("Walter", "Weis", new Locale("DE", "DEU"), "Berlin"));
     }
 
     @Test
