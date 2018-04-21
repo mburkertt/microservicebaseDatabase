@@ -1,50 +1,22 @@
 package ch.erni.microservicebase.Service;
 
 import ch.erni.microservicebase.Persistence.DAO.Person;
-import ch.erni.microservicebase.Persistence.Repository.PersonRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.List;
 
-/**
- * Created by Matthias on 14/09/2017.
- */
-@Service
-@Transactional
-public class DataExampleService {
+public interface DataExampleService {
 
-    private PersonRepository repository;
 
-    @Autowired
-    public DataExampleService(PersonRepository repository) {
-        this.repository = repository;
-    }
+    void savePerson(Person person);
 
-    public void savePerson(Person person) {
-        repository.save(person);
-    }
+    Person findPerson(long id);
 
-    public Person findPerson(long id) {
-        return repository.findOne(id);
-    }
+    void deletePerson(long id);
 
-    public void deletePerson(long id) {
-        repository.delete(id);
-    }
+    List<Person> findAllPersons();
 
-    public List<Person> findAllPersons() {
-        return repository.findAll();
-    }
+    void saveAllPersons(Collection<Person> persons);
 
-    public void saveAllPersons(Collection<Person> persons) {
-        repository.save(persons);
-    }
-
-    public void deleteAllPersons() {
-        repository.deleteAll();
-    }
-
+    void deleteAllPersons();
 }

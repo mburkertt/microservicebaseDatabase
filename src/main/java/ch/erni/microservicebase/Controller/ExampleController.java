@@ -8,17 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
-
 /**
  * Created by buma on 19.01.2017.
  */
 
 @RestController
 public class ExampleController {
-
-    @Resource(name = "person")
-    private Person uncompleteExample;
 
     private DataExampleService dataExampleService;
     private final ExampleService exampleService;
@@ -31,7 +26,7 @@ public class ExampleController {
 
     @RequestMapping("/1")
     public Example exampleController() {
-        return exampleService.getCompletedExample(uncompleteExample);
+        return exampleService.getCompletedExample(new Person());
     }
 
     @RequestMapping("/findall")
@@ -59,7 +54,7 @@ public class ExampleController {
 
     @RequestMapping("/executeTestcase")
     public String executeTestcase() {
-        return exampleService.getCompletedExample(uncompleteExample).getCompletedExample();
+        return exampleService.getCompletedExample(new Person()).getCompletedExample();
     }
 
 }
