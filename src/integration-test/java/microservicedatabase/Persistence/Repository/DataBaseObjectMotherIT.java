@@ -1,6 +1,6 @@
-package ch.erni.microservicebase.Persistence.Repository;
+package ch.erni.microservicedatabase.Persistence.Repository;
 
-import ch.erni.microservicebase.Persistence.DAO.Person;
+import ch.erni.microservicedatabase.Persistence.DAO.Person;
 
 import java.util.Locale;
 

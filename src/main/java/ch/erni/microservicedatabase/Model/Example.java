@@ -1,6 +1,6 @@
-package ch.erni.microservicebase.Model;
+package ch.erni.microservicedatabase.Model;
 
-import ch.erni.microservicebase.Persistence.DAO.Person;
+import ch.erni.microservicedatabase.Persistence.DAO.Person;
 
 /**
  * Created by buma on 19.01.2017.

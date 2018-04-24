@@ -1,6 +1,6 @@
-package ch.erni.microservicebase.Configuration;
+package ch.erni.microservicedatabase.Configuration;
 
-import ch.erni.microservicebase.Persistence.DAO.Person;
+import ch.erni.microservicedatabase.Persistence.DAO.Person;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
 

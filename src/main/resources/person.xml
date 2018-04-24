@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <person id="1" firstname="Harald" lastname="Rot" town="Stockholm" country="SWE" zip="12345"/>
+</dataset>

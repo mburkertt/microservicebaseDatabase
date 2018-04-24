@@ -1,6 +1,6 @@
-package ch.erni.microservicebase.Persistence.Repository;
+package ch.erni.microservicedatabase.Persistence.Repository;
 
-import ch.erni.microservicebase.Persistence.DAO.Person;
+import ch.erni.microservicedatabase.Persistence.DAO.Person;
 import org.assertj.core.groups.Tuple;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,8 +12,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 import java.util.Locale;
 
-import static ch.erni.microservicebase.Persistence.Repository.DataBaseObjectMotherIT.getDataSetFrank;
-import static ch.erni.microservicebase.Persistence.Repository.DataBaseObjectMotherIT.getDataSetWalter;
+import static ch.erni.microservicedatabase.Persistence.Repository.DataBaseObjectMotherIT.getDataSetFrank;
+import static ch.erni.microservicedatabase.Persistence.Repository.DataBaseObjectMotherIT.getDataSetWalter;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -100,4 +100,37 @@ public class PersonRepositoryIT {
 
         assertThat(resultDeleted).hasSize(0);
     }
+    
+    @Test
+    @DirtiesContext
+    public void find_entry_by_lastname_find_weis_and_return_him() {
+        repository.deleteAll();
+        repository.save(getDataSetFrank());
+        repository.save(getDataSetWalter());
+        String lastName = "Weis";
+        
+        List<Person> result = repository.findByLastName(lastName);
+        
+        assertThat(result).hasSize(1);
+        assertThat(result)
+                .extracting(Person::getFirstName, Person::getLastName, Person::getCountry, Person::getTown)
+                .containsExactly(Tuple.tuple("Walter", "Weis", new Locale("DE", "DEU"), "Berlin"));
+    }
+    
+    @Test
+    @DirtiesContext
+    public void find_entry_by_lastname_find_van_Beren_and_return_him() {
+        repository.deleteAll();
+        repository.save(getDataSetFrank());
+        repository.save(getDataSetWalter());
+        String lastName = "van Beren";
+        
+        List<Person> result = repository.findByLastName(lastName);
+        
+        assertThat(result).hasSize(1);
+        assertThat(result)
+                .extracting(Person::getFirstName, Person::getLastName, Person::getCountry, Person::getTown)
+                .containsExactly(Tuple.tuple("Frank", "van Beren", new Locale("DE", "DEU"), "Frankfurt"));
+    }
+    
 }

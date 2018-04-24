@@ -1,4 +1,4 @@
-package ch.erni.microservicebase.Persistence.DAO;
+package ch.erni.microservicedatabase.Persistence.DAO;
 
 import javax.persistence.*;
 import java.util.Locale;

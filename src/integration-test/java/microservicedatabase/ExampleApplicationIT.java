@@ -1,4 +1,4 @@
-package ch.erni.microservicebase;
+package ch.erni.microservicedatabase;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

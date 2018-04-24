@@ -1,4 +1,4 @@
-package ch.erni.microservicebase.Controller;
+package ch.erni.microservicedatabase.Controller;
 
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

@@ -1,7 +1,7 @@
-package ch.erni.microservicebase.Service;
+package ch.erni.microservicedatabase.Service;
 
-import ch.erni.microservicebase.Model.Example;
-import ch.erni.microservicebase.Persistence.DAO.Person;
+import ch.erni.microservicedatabase.Model.Example;
+import ch.erni.microservicedatabase.Persistence.DAO.Person;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

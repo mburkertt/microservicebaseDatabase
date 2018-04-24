@@ -1,9 +1,9 @@
-package ch.erni.microservicebase.Controller;
+package ch.erni.microservicedatabase.Controller;
 
-import ch.erni.microservicebase.Model.Example;
-import ch.erni.microservicebase.Persistence.DAO.Person;
-import ch.erni.microservicebase.Service.DataExampleService;
-import ch.erni.microservicebase.Service.ExampleService;
+import ch.erni.microservicedatabase.Model.Example;
+import ch.erni.microservicedatabase.Persistence.DAO.Person;
+import ch.erni.microservicedatabase.Service.DataExampleService;
+import ch.erni.microservicedatabase.Service.ExampleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
